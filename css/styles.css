@@ -26,7 +26,7 @@ body {
 }
 
 /* Backgrounds */
-.home-bg { background: url('../assets/images/home-desktop.jpg') no-repeat center/cover; }
+.home-bg { background: url('../assets/images/background-home-desktop.jpg') no-repeat center/cover; }
 
 /* --- Layout Utilities --- */
 .flex { display: flex; gap: var(--gap, 1rem); }
