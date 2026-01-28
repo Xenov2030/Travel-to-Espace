@@ -1,0 +1,109 @@
+/* --- Custom Properties --- */
+:root {
+    --clr-dark: 230 35% 7%;
+    --clr-light: 231 77% 90%;
+    --clr-white: 0 0% 100%;
+    
+    --fs-900: clamp(5rem, 8vw + 1rem, 9.375rem);
+    --fs-500: 1.75rem;
+    --fs-400: 1.125rem;
+    
+    --ff-serif: "Bellefair", serif;
+    --ff-sans-cond: "Barlow Condensed", sans-serif;
+    --ff-sans-normal: "Barlow", sans-serif;
+}
+
+/* --- Reset & Base --- */
+*, *::before, *::after { box-sizing: border-box; }
+body {
+    font-family: var(--ff-sans-normal);
+    font-size: var(--fs-400);
+    color: hsl(var(--clr-light));
+    background-color: hsl(var(--clr-dark));
+    line-height: 1.5;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Backgrounds */
+.home-bg { background: url('../assets/images/home-desktop.jpg') no-repeat center/cover; }
+
+/* --- Layout Utilities --- */
+.flex { display: flex; gap: var(--gap, 1rem); }
+.grid { display: grid; gap: var(--gap, 1rem); }
+.grid-container {
+    display: grid;
+    padding-inline: 1rem;
+    place-items: center;
+    text-align: center;
+}
+
+@media (min-width: 45em) {
+    .grid-container--home {
+        grid-template-columns: minmax(1rem, 1fr) repeat(2, minmax(0, 30rem)) minmax(1rem, 1fr);
+        text-align: left;
+        padding-bottom: 6rem;
+        align-items: end;
+    }
+    .grid-container--home > *:first-child { grid-column: 2; }
+    .grid-container--home > *:last-child { grid-column: 3; }
+}
+
+/* --- Components --- */
+.large-button {
+    font-size: 2rem;
+    padding: 0 2em;
+    aspect-ratio: 1;
+    display: inline-grid;
+    place-items: center;
+    text-decoration: none;
+    border-radius: 50%;
+    position: relative;
+    z-index: 1;
+    transition: box-shadow 0.4s ease-in-out;
+}
+
+.large-button::after {
+    content: '';
+    position: absolute;
+    width: 100%; height: 100%;
+    background: white; opacity: 0.1;
+    border-radius: 50%; z-index: -1;
+    transition: transform 0.5s ease-out;
+}
+
+.large-button:hover::after { transform: scale(1.5); }
+
+/* Navigation */
+.primary-navigation {
+    list-style: none;
+    padding: 0; margin: 0;
+    background: hsl(var(--clr-white) / 0.05);
+    backdrop-filter: blur(1.5rem);
+}
+
+/* Mobile Nav Toggle */
+.mobile-nav-toggle {
+    display: none;
+}
+
+@media (max-width: 35em) {
+    .primary-navigation {
+        position: fixed;
+        inset: 0 0 0 30%;
+        flex-direction: column;
+        padding: min(20rem, 15vh) 2rem;
+        z-index: 1000;
+        transform: translateX(100%);
+        transition: transform 0.3s ease-out;
+    }
+    .primary-navigation[data-visible="true"] { transform: translateX(0); }
+    .mobile-nav-toggle {
+        display: block;
+        position: absolute;
+        right: 1rem; top: 2rem;
+        z-index: 9999;
+        background: transparent; border: 0;
+        width: 1.5rem; aspect-ratio: 1;
+    }
+}
