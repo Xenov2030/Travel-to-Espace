@@ -10,9 +10,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700&family=Barlow:wght@400;700&family=Bellefair&display=swap" rel="stylesheet">
   
   <link rel="stylesheet" href="./css/styles.css">
-  <title>Space Tourism | Home</title>
+  <title>Space Tourism | Destination - Europa</title>
 </head>
-<body class="home-page">
+<body class="destination-page">
   <a class="skip-to-content" href="#main-content"></a>
 
   <header class="primary-header flex">
@@ -31,12 +31,12 @@
 
     <nav>
       <ul id="primary-navigation" data-visible="false" class="primary-navigation underline-indicators flex">
-        <li class="active">
+        <li>
           <a class="ff-sans-cond uppercase text-white letter-spacing-2" href="index.html">
             <span aria-hidden="true">00</span> Home
           </a>
         </li>
-        <li>
+        <li class="active">
           <a class="ff-sans-cond uppercase text-white letter-spacing-2" href="destination-moon.html">
             <span aria-hidden="true">01</span> Destination
           </a>
@@ -55,25 +55,44 @@
     </nav>
   </header>
 
-  <main id="main-content" class="grid-container grid-container--home">
-    <div class="hero-text-content">
-      <h1 class="text-accent ff-sans-cond uppercase letter-spacing-1">
-        So, you want to travel to
-        <span class="d-block ff-serif text-white fs-900">Space</span>
-      </h1>
-      
-      <p class="text-accent">
-        Let’s face it; if you want to go to space, you might as well genuinely go to 
-        outer space and not hover kind of on the edge of it. Well sit back, and relax 
-        because we’ll give you a truly out of this world experience!
-      </p>
+  <main id="main-content" class="grid-container grid-container--destination">
+    <h1 class="numbered-title ff-sans-cond uppercase letter-spacing-1">
+      <span aria-hidden="true">01</span> Pick your destination
+    </h1>
+
+    <picture id="europa-image">
+      <source srcset="./assets/destination/image-europa.webp" type="image/webp">
+      <img src="./assets/destination/image-europa.png" alt="the moon europa">
+    </picture>
+
+    <div class="tab-list underline-indicators flex" role="tablist" aria-label="destination list">
+      <a href="destination-moon.html" aria-selected="false" class="uppercase ff-sans-cond text-accent letter-spacing-2">Moon</a>
+      <a href="destination-mars.html" aria-selected="false" class="uppercase ff-sans-cond text-accent letter-spacing-2">Mars</a>
+      <a href="destination-europa.html" aria-selected="true" class="uppercase ff-sans-cond text-accent letter-spacing-2">Europa</a>
+      <a href="destination-titan.html" aria-selected="false" class="uppercase ff-sans-cond text-accent letter-spacing-2">Titan</a>
     </div>
 
-    <div class="hero-action-container">
-      <a href="destination-moon.html" class="large-button ff-serif uppercase text-dark bg-white">
-        Explore
-      </a>
-    </div>
+    <article class="destination-info" id="europa-panel" role="tabpanel" tabindex="0">
+      <h2 class="fs-800 uppercase ff-serif">Europa</h2>
+
+      <p class="text-accent">
+        The smallest of the four Galilean moons orbiting Jupiter, Europa is a 
+        winter lover’s dream. With an icy surface, it’s perfect for a bit of 
+        ice skating, curling, hockey, or simple relaxation in your snug 
+        wintery cabin.
+      </p>
+
+      <div class="destination-meta flex">
+        <div>
+          <h3 class="text-accent fs-200 uppercase ff-sans-cond letter-spacing-3">Avg. distance</h3>
+          <p class="ff-serif uppercase">628 mil. km</p>
+        </div>
+        <div>
+          <h3 class="text-accent fs-200 uppercase ff-sans-cond letter-spacing-3">Est. travel time</h3>
+          <p class="ff-serif uppercase">3 years</p>
+        </div>
+      </div>
+    </article>
   </main>
 
   <script src="./js/navigation.js"></script>
